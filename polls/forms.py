@@ -2,12 +2,13 @@ from models import *
 from django import forms
 from django.core.exceptions import ValidationError
 
+
 class RegisterUserForm(forms.ModelForm):
-    last_name = forms.CharField(label='Фамилия',
+    lastName = forms.CharField(label='Фамилия',
                                 error_messages={
                                     'required': 'Обязательное поле',
                                 }, )
-    first_name = forms.CharField(label='Имя',
+    firstName = forms.CharField(label='Имя',
                                  error_messages={
                                      'required': 'Обязательное поле',
                                  })
@@ -24,7 +25,7 @@ class RegisterUserForm(forms.ModelForm):
                                 error_messages={
                                     'required': 'Обязательное поле',
                                 })
-    photo = forms.ImageField(label='Фото')
+    img = forms.ImageField(label='Фото')
 
     def clean(self):
         super().clean()
@@ -44,5 +45,5 @@ class RegisterUserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('last_name', 'first_name', 'username', 'password', 'password2', 'photo')
+        fields = ('lastName', 'firstName', 'username', 'password', 'password2', 'img')
         enctype = "multipart/form-data"
