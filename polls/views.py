@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import CreateView
 
+from .forms import RegisterUserForm
 from .models import Question, Choice
 from django.template import loader
 from django.urls import reverse, reverse_lazy
@@ -46,3 +47,5 @@ class RegisterUserView(CreateView):
     model = User
     template_name = 'polls/register_user.html'
     success_url = reverse_lazy('index')
+    form_class = RegisterUserForm
+

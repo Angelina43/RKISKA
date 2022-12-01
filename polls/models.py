@@ -31,3 +31,6 @@ class User(models.Model):
     email = models.CharField(max_length=254, verbose_name='Почта', blank=False)
     password = models.CharField(max_length=254, verbose_name='Пароль', blank=False)
     img = models.ImageField(max_length=254, blank=True, null=False)
+
+    def __str__(self):
+        return str(self.firstName) + ' ' + str(self.lastName) + '(' + str(self.username) + ')'
